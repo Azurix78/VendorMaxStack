@@ -1,37 +1,37 @@
 # VendorMaxStack
 
-Addon **WoW Forever 1.60.1 / interface 16001**, par **Syntaxucre**.
+An addon for **WoW Forever 1.60.1 / interface 16001**, by **Syntaxucre**.
 
-Un bouton **×N** sur les lignes du marchand achète une pile complète. Par exemple, **×20 achète 20 objets**, même s’ils sont vendus par lots de 5. Les piles déjà possédées ne réduisent pas la quantité achetée.
+A **×N** button on each eligible merchant row buys one full stack. For example, **×20 buys 20 items**, even when the merchant sells bundles of five. Items you already own do not reduce the purchase amount.
 
-## Installer en un clic sous Windows
+## One-click installation on Windows
 
-Double-cliquez sur **Installer-Addon.cmd** en conservant les fichiers du projet à côté. L’addon sera copié dans :
+Double-click **Installer-Addon.cmd**, keeping the project files alongside it. The addon will be copied to:
 
 ```text
 C:\Program Files (x86)\World of Warcraft\_classic_beta_\Interface\AddOns\VendorMaxStack
 ```
 
-Si Windows refuse la copie, le script ouvre une demande de droits administrateur. Acceptez-la pour terminer l’installation. Une première installation nécessite de redémarrer WoW. Pour mettre à jour un addon déjà chargé, relancez le script puis tapez `/reload`.
+If Windows denies access, the script requests administrator privileges. Accept the prompt to complete installation. Restart WoW after the first installation. To update an already loaded addon, run the installer again, then type `/reload` in game.
 
-Le script vérifie les fichiers copiés, conserve les autres addons et ne modifie pas les permissions du dossier du jeu. Les fichiers supplémentaires éventuellement présents dans un ancien dossier VendorMaxStack ne sont pas supprimés.
+The script verifies the copied files, preserves other addons and leaves game-folder permissions unchanged. Extra files in an existing VendorMaxStack folder are not deleted. Installer messages are in French.
 
-Autre dossier ou simulation sans copie :
+Use a different destination or preview installation without copying files:
 
 ```powershell
-.\Install-Addon.ps1 -AddOnsPath 'D:\Jeux\World of Warcraft\_classic_beta_\Interface\AddOns'
+.\Install-Addon.ps1 -AddOnsPath 'D:\Games\World of Warcraft\_classic_beta_\Interface\AddOns'
 .\Install-Addon.ps1 -WhatIf
 ```
 
-## Utilisation
+## Usage
 
-Ouvrez un marchand et cliquez sur **×N**. Survolez le bouton pour voir la quantité, le prix total et la raison d’une indisponibilité. Il reste grisé si une pile complète ne peut pas être achetée : argent, stock, place dans les sacs ou limite de l’objet. Aucun achat réduit ni nouvelle tentative automatique n’est effectué.
+Open a merchant and click **×N**. Hover over the button to see the quantity, total price and any reason the purchase is unavailable. The button is disabled when money, stock, bag space or an item limit prevents buying a full stack. It never substitutes a smaller purchase or automatically retries a failed one.
 
-Les objets non empilables et les achats avec monnaies spéciales sont exclus. L’onglet Rachat et les clics habituels sur les icônes restent disponibles. Les limites uniques partagées entre plusieurs objets utilisent l’achat habituel, car le nombre possédé d’un seul objet ne suffit pas à les vérifier. Les sacs spécialisés sont pris en compte selon leur type ; les places de banque ne comptent pas comme espace disponible.
+Non-stackable items and purchases requiring special currencies are excluded. The Buyback tab and standard item-icon clicks remain available. Items with shared unique limits use the standard purchase button, because the owned count of a single item cannot establish the remaining allowance. Specialty bags are checked for compatibility; bank slots do not count as available bag space.
 
-Tous les textes de l’addon suivent la langue du client : anglais, français, allemand, espagnol européen et latino-américain, italien, portugais brésilien, russe, coréen, chinois simplifié et traditionnel. L’anglais sert de secours. Aucun réglage ni autre addon requis.
+All addon text follows the client language: English, French, German, Spanish (Spain and Latin America), Italian, Brazilian Portuguese, Russian, Korean, Simplified Chinese and Traditional Chinese. English is the fallback. No configuration or other addons are required.
 
-## Distribution et développement
+## Distribution and development
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\Build-Release.ps1
@@ -40,11 +40,11 @@ npm test
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tests\Packaging.Tests.ps1
 ```
 
-Le ZIP public est `dist/VendorMaxStack-1.0.0.zip`. Il contient uniquement le dossier installable et sa documentation, sans les scripts Windows, tests ou dépendances de développement. Le générateur lit la version du TOC. Un gestionnaire d’addons ou une extraction manuelle peut installer ce ZIP.
+The release ZIP is `dist/VendorMaxStack-1.0.0.zip`. It contains the installable addon folder and its documentation, excluding Windows scripts, tests and development dependencies. The builder reads the version from the TOC. Install this ZIP with an addon manager or extract it manually.
 
-- [Guide joueur anglais](VendorMaxStack/README.md)
-- [Description et dépôt CurseForge](docs/PUBLISHING.fr.md)
-- [Vérifications en jeu](docs/VALIDATION.fr.md)
-- [Changelog](CHANGELOG.md) · [Licence MIT](LICENSE)
+- [Player guide](VendorMaxStack/README.md)
+- [CurseForge descriptions and publishing guide (French)](docs/PUBLISHING.fr.md)
+- [In-game validation checklist (French)](docs/VALIDATION.fr.md)
+- [Changelog](CHANGELOG.md) · [MIT license](LICENSE)
 
-La syntaxe Lua 5.1, les achats simulés, les traductions et la distribution sont vérifiables automatiquement. **Le rendu, les achats réels, les confirmations et l’absence de taint nécessitent encore une validation dans le client Forever.** Aucun test automatisé ne remplace cette étape, et les autres éditions de WoW ne sont pas annoncées compatibles.
+Automated checks cover Lua 5.1 syntax, simulated purchases, translations and packaging. **Layout, actual purchases, confirmation dialogs and the absence of taint still require validation in the Forever client.** Automated tests do not replace this step, and compatibility with other WoW editions is not claimed.
