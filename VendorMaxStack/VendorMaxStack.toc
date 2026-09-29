@@ -1,0 +1,22 @@
+## Interface: 16001
+## Title: VendorMaxStack
+## Notes: Buy a full stack with one click at merchants.
+## Notes-frFR: Achetez une pile complète en un clic chez les marchands.
+## Notes-deDE: Kauft mit einem Klick einen vollen Stapel beim Händler.
+## Notes-esES: Compra una pila completa con un clic en los vendedores.
+## Notes-esMX: Compra una pila completa con un clic en los vendedores.
+## Notes-itIT: Acquista una pila completa con un clic dai mercanti.
+## Notes-ptBR: Compre uma pilha completa com um clique nos comerciantes.
+## Notes-ruRU: Покупка полной стопки у торговца одним щелчком.
+## Notes-koKR: 상인에게서 한 번의 클릭으로 최대 묶음을 구매합니다.
+## Notes-zhCN: 在商人处单击即可购买一整组物品。
+## Notes-zhTW: 在商人處按一下即可購買一整組物品。
+## Author: Syntaxucre
+## Version: 1.0.0
+## X-License: MIT
+## OptionalDeps: Blizzard_UIPanels_Game
+
+Localization.lua
+Logic.lua
+Merchant.lua
+Core.lua

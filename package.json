@@ -1,0 +1,9 @@
+{
+  "name": "vendor-max-stack-dev",
+  "private": true,
+  "version": "1.0.0",
+  "author": "Syntaxucre",
+  "license": "MIT",
+  "scripts": { "test": "node tests/run.cjs" },
+  "devDependencies": { "fengari": "0.1.5", "luaparse": "0.3.1" }
+}
